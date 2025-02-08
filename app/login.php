@@ -1,6 +1,10 @@
 <?php
 session_start();
-include_once("connection.php");
+require_once("connection.php");
+require_once("helper_functions.php");
+
+$session_timeout = config('auth')['session']['timeout'];
+
 $username = $_POST["username"];
 $password = md5($_POST["password"]);
 
@@ -13,8 +17,9 @@ $query->execute();
 $result = $query->fetch();
 if (count($result) > 0) {
     $_SESSION['display_name'] = $result["display_name"];
+    $_SESSION['username'] = $username;
     $auth_token = md5(uniqid(rand(), true));
-    $expire_date = date("Y-m-d H:i:s", strtotime("+5 minutes"));
+    $expire_date = date("Y-m-d H:i:s", strtotime("{$session_timeout} minutes"));
     $sql = "UPDATE users SET auth_token=?, auth_expires=? WHERE name=?";
     $query = $conn->prepare($sql);
     $query->bindParam(1, $auth_token, PDO::PARAM_STR);
