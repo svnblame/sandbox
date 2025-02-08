@@ -3,10 +3,10 @@ require_once "helper_functions.php";
 $db_auth = config('auth')['db'];
 
 // Database connection parameters
-$host = 'mysql-db';      // MySQL hostname within the same Docker network
-$user = 'db_user';       // MySQL username
-$pass = 'password';      // MySQL user's password
-$db   = 'sandbox';       // MySQL database name
+$host = $db_auth['host'];
+$user = $db_auth['username'];
+$pass = $db_auth['password'];
+$db   = $db_auth['name'];
 
 // Create a new PDO object to establish a database connection
 try {

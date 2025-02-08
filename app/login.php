@@ -14,7 +14,7 @@ $result = $query->fetch();
 if (count($result) > 0) {
     $_SESSION['display_name'] = $result["display_name"];
     $auth_token = md5(uniqid(rand(), true));
-    $expire_date = date("Y-m-d H:i:s", strtotime("+30 minutes"));
+    $expire_date = date("Y-m-d H:i:s", strtotime("+5 minutes"));
     $sql = "UPDATE users SET auth_token=?, auth_expires=? WHERE name=?";
     $query = $conn->prepare($sql);
     $query->bindParam(1, $auth_token, PDO::PARAM_STR);
