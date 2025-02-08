@@ -1,0 +1,39 @@
+services:
+  # PHP-FPM Service
+  php-fpm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      # Mounts the local 'app' directory to the container's nginx root
+      - ./app:/var/www/html
+    depends_on:
+      # Depends on the MySQL database service
+      - mysql-db
+  
+  # NGINX Service
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    volumes:
+      # Mount local 'app' directory to the nginx root
+      - ./app:/var/www/html
+    ports:
+      - "8080:80"
+    depends_on:
+      - php-fpm   # Depends on the PHP-FPM service
+      - mysql-db  # Depends on the MySQL database service
+  
+  # MySQL Database Service
+  mysql-db:
+    image: mysql:9.0
+    environment:
+      MYSQL_ROOT_PASSWORD: foP2ln!sid287
+      MYSQL_DATABASE: sandbox
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: password
+    ports:
+      # Maps port 3306 on the host to port 3306 on the MySQL container
+      - "3306:3306"
+
