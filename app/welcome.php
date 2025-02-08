@@ -17,7 +17,6 @@
     $auth_expires = date_create($_SESSION['auth_expires']);
     $dt_current = date_create(date('Y-m-d H:i:s'));
     $interval = date_diff($dt_current, $auth_expires);
-    $interval->format('%r%i');
     $minutes = $interval->days * 24 * 60;
     $minutes += $interval->h * 60;
     $minutes += $interval->i;
@@ -43,7 +42,7 @@ if ($authenticated) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container mt-5" id="login_form">
+    <div class="container mt-5" id="welcome_page">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
