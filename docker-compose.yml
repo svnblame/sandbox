@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      # Mounts the local 'app' directory to the container's nginx root
+      # Mounts the local project root directory to the container's nginx root
       - ./app:/var/www/html
     depends_on:
       # Depends on the MySQL database service

@@ -21,13 +21,11 @@
     $minutes += $interval->h * 60;
     $minutes += $interval->i;
     $minutes = (int)$interval->format('%r%i');
-    $valiid_session_time = $minutes >= 0 && $minutes <= $session_timeout;
+    $valid_session_time = $minutes >= 0 && $minutes <= $session_timeout;
 
-    $authenticated = $valid_session_user && $valiid_session_time;
+    $authenticated = $valid_session_user && $valid_session_time;
 
     $displayName = $_SESSION['display_name'];
-
-
 
 if ($authenticated) {
 ?>
@@ -36,7 +34,7 @@ if ($authenticated) {
 <head>
     <meta charset="UTF-i">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="30">
+    <meta http-equiv="refresh" content="15">
     <title>Welcome</title>
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
