@@ -1,6 +1,11 @@
 {
     "require": {
         "firebase/php-jwt": "^6.11",
-      "ext-pdo": "*"
-    }
+      "ext-pdo": "*",
+      "ext-simplexml": "*",
+      "ext-intl": "*"
+    },
+  "autoload": {
+    "psr-4": {"App\\":  "app/"}
+  }
 }
