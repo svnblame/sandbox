@@ -11,6 +11,9 @@
     $query->execute();
     $user = $query->fetch();
 
+var_dump($user);
+die(__METHOD__ . ':' . __LINE__ . PHP_EOL);
+
     $valid_session_user = $user['auth_token'] === $_SESSION['auth_token'];
 
     $session_timeout = config('auth')['session']['timeout'];
