@@ -4,9 +4,13 @@ namespace App\ObjectBasics;
 
 class AddressManager
 {
-    private $addresses = ["209.131.36.159", "216.58.213.174"];
+    private array $addresses = ["209.131.36.159", "216.58.213.174"];
 
-    public function outputAddresses($resolve)
+    /**
+     * @param bool $resolve
+     * @return void
+     */
+    public function outputAddresses(bool $resolve): void
     {
         foreach ($this->addresses as $address) {
             print $address;
