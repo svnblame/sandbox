@@ -10,6 +10,7 @@ use App\AdvancedFeatures\ProductCategory;
 use App\AdvancedFeatures\ShopProduct2;
 use App\AdvancedFeatures\TextProductWriter;
 use App\AdvancedFeatures\XmlProductWriter;
+use App\AdvancedFeatures\UtilityService;
 
 StaticExample::sayHello();
 print PHP_EOL;
@@ -59,3 +60,11 @@ $xmlWriter->write();
 $textWriter = new TextProductWriter();
 $textWriter->addproduct($product4);
 $textWriter->write();
+
+print PHP_EOL;
+
+$p = new ShopProduct();
+print $p->calculateTax(100) . PHP_EOL;
+
+$u = new UtilityService();
+print $u->calculateTax(100) . PHP_EOL;
