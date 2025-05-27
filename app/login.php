@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once("connection.php");
+$connection = require_once("connection.php");
+
 require_once("helper_functions.php");
 
 $session_timeout = config('auth')['session']['timeout'];
@@ -10,7 +11,8 @@ $password = md5($_POST["password"]);
 
 // Fetch data from database
 $sql = "SELECT display_name FROM users WHERE name=? AND password=?";
-$query = $conn->prepare($sql);
+
+$query = $connection->prepare($sql);
 $query->bindParam(1, $username);
 $query->bindParam(2, $password);
 $query->execute();

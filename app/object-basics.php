@@ -16,7 +16,7 @@ $product = new ShopProduct(
     price: 5.99
 );
 
-print "author: {$product->getProducer()}" . PHP_EOL . PHP_EOL;
+print "author: {$product->producer}" . PHP_EOL . PHP_EOL;
 
 $settings = simplexml_load_file(__DIR__ . '/config/settings.xml');
 $manager = new AddressManager();
