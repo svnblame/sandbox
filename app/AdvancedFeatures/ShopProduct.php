@@ -4,6 +4,8 @@ namespace App\AdvancedFeatures;
 
 class ShopProduct implements Chargeable
 {
+    use PriceUtilities;
+
     public const int AVAILABLE = 0;
     public const int OUT_OF_STOCK = 1;
 
