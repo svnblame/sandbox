@@ -1,11 +1,18 @@
 <?php
 
-namespace App\ObjectBasics;
+namespace App\AdvancedFeatures;
 
 use NumberFormatter;
 
-class ShopProductWriter
+abstract class ShopProductWriter
 {
+    protected array $products = [];
+
+    public function addProduct(ShopProduct $shopProduct): void
+    {
+        $this->products[] = $shopProduct;
+    }
+
     public function summaryLine(ShopProduct $product): void
     {
         $formatter = new NumberFormatter('en_US', NumberFormatter::CURRENCY);
@@ -16,4 +23,6 @@ class ShopProductWriter
 
         print $str;
     }
+
+    abstract public function write(): void;
 }
