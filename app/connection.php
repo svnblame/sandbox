@@ -11,6 +11,7 @@ $db   = $db_auth['name'];
 // Create a new PDO object to establish a database connection
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+    return $conn;
 } catch (PDOException $e) {
     echo $e->getMessage();
     exit;
