@@ -2,9 +2,13 @@
 
 namespace App\AdvancedFeatures;
 
-class ShopProduct implements Chargeable
+class ShopProduct implements Chargeable, IdentityObject
 {
     use PriceUtilities;
+    use IdentityTrait;
+    use TaxTools {
+        TaxTools::calculateTax insteadof PriceUtilities;
+    }
 
     public const int AVAILABLE = 0;
     public const int OUT_OF_STOCK = 1;
@@ -97,5 +101,10 @@ class ShopProduct implements Chargeable
     public function getTitle(): string
     {
         return $this->title;
+    }
+
+    public function getTaxRate(): float
+    {
+        return 20;
     }
 }
