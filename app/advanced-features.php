@@ -4,13 +4,16 @@ declare(strict_types=1);
 
 require __DIR__ . '/../vendor/autoload.php';
 
+use App\AdvancedFeatures\SpreadSheet;
 use App\AdvancedFeatures\StaticExample;
 use App\AdvancedFeatures\ShopProduct;
 use App\AdvancedFeatures\ProductCategory;
 use App\AdvancedFeatures\ShopProduct2;
 use App\AdvancedFeatures\TextProductWriter;
+use App\AdvancedFeatures\User;
 use App\AdvancedFeatures\XmlProductWriter;
 use App\AdvancedFeatures\UtilityService;
+use App\AdvancedFeatures\Document;
 
 StaticExample::sayHello();
 print PHP_EOL;
@@ -66,5 +69,13 @@ print PHP_EOL;
 $p = new ShopProduct();
 print $p->calculateTax(100) . PHP_EOL;
 
-$u = new UtilityService();
-print $u->calculateTax(100) . PHP_EOL;
+$u = new UtilityService(100);
+print $u->getFinalPrice() . PHP_EOL;
+
+$p = new ShopProduct();
+print $p->calculateTax(100) . PHP_EOL;
+print $p->generateId() . PHP_EOL;
+
+print_r(Document::create());
+print_r(User::create());
+print_r(SpreadSheet::create());
