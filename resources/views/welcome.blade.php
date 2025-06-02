@@ -1,4 +1,6 @@
 <x-layout>
-    <x-slot:title>PHP 8: Objects, Patterns, and Practice</x-slot:title>
-    <h1 class="mb-1">PHP 8: Objects, Patterns, and Practice</h1>
+    <div class="mb-6 text-[0.75em]/loose">@yield('pageTitle', 'PHP 8: Objects, Patterns and Practice')</div>
+    <div class="mb-4 text-[0.5em]/loose">
+        Code examples from PHP 8: Objects, Patterns and Practice, 7th Edition, Volume 1
+    </div>
 </x-layout>
