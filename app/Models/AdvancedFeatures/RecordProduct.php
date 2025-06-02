@@ -11,14 +11,14 @@ class RecordProduct extends ShopProduct
         int|float $price,
         public readonly int $playLength
     ) {
-        parent::__construct($title, $firstName, $mainName, $price);
+        parent::__construct(ProductCategory::audio, $title, $firstName, $mainName, $price, $playLength);
     }
 
     public function summaryLine(): string
     {
         $base = "{$this->title} ( {$this->producerMainName}, ";
         $base .= "{$this->producerFirstName} )";
-        $base .= ": playing time - {$this->playLength}";
+        $base .= ": {$this->playLength} minutes";
 
         return $base;
     }
