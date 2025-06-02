@@ -14,7 +14,8 @@
         "laravel/tinker": "^2.10.1",
         "ext-simplexml": "*",
         "ext-intl": "*",
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "ext-xmlwriter": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

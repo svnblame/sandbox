@@ -4,8 +4,8 @@ namespace App;
 
 trait TaxTools
 {
-    public function calculateTax(): float
+    public function calculateTax(float $price): float
     {
-        return 222;
+        return ($price * 20) / 100;
     }
 }
