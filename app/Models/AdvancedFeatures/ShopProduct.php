@@ -14,25 +14,42 @@ class ShopProduct implements Chargeable, IdentityObject
         TaxTools::calculateTax insteadof PriceUtilities;
     }
 
-    public const int AVAILABLE = 0;
-    public const int OUT_OF_STOCK = 1;
-
     private int $id = 0;
 
     private int|float $discount = 0;
     public readonly string $producer;
 
     public function __construct(
+        private readonly ProductCategory $productCategory,
         public readonly string $title = 'Default Product',
         public readonly string $producerFirstName = 'First Name',
         public readonly string $producerMainName = 'Main Name',
-        public int|float $price = 0
+        public int|float $price = 0,
+        protected int $length = 0
     ) {
         $this->producer = $this->producerFirstName . ' '
             . $this->producerMainName;
     }
 
-    public static function getInstance(int $id, \PDO $pdo): ?ShopProduct
+    /**
+     * @throws \Exception
+     */
+    public static function getInstance(
+        ProductCategory $type,
+        string $title,
+        string $producerFirstName = '',
+        string $producerMainName = '',
+        int|float $price = 0,
+        int $length = 0
+    ): self {
+        return match ($type) {
+            ProductCategory::audio => new RecordProduct($title, $producerFirstName, $producerMainName, $price, $length),
+            ProductCategory::reading => new BookProduct($title, $producerFirstName, $producerMainName, $price, $length),
+            ProductCategory::household, ProductCategory::clothing, ProductCategory::grocery => throw new \Exception('To be implemented'),
+        };
+    }
+
+    public static function find(int $id, \PDO $pdo): ?ShopProduct
     {
         $stmt = $pdo->prepare('SELECT * FROM `products` WHERE `id` = :id');
         $stmt->execute(['id' => $id]);
