@@ -112,4 +112,13 @@ return [
 
     'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
 
+    'db' => [
+        'host'  => env('DB_HOST', '127.0.0.1'),
+        'port'  => env('DB_PORT', '3306'),
+        'database'  => env('DB_DATABASE', 'sandbox'),
+        'username'  => env('DB_USERNAME', 'sandbox'),
+        'password'  => env('DB_PASSWORD', 'password'),
+        'dsn' => "mysql:host=127.0.0.1;dbname=sandbox;port=3306;charset=utf8",
+    ]
+
 ];
