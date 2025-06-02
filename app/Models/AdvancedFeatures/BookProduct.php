@@ -11,13 +11,13 @@ class BookProduct extends ShopProduct
         int|float $price,
         public readonly int $numPages
     ) {
-        parent::__construct($title, $firstName, $mainName, $price);
+        parent::__construct(ProductCategory::reading, $title, $firstName, $mainName, $price, $numPages);
     }
 
     public function summaryLine(): string
     {
         $base = parent::summaryLine();
-        $base .= ": page count - {$this->numPages}";
+        $base .= ": {$this->numPages} pages";
         return $base;
     }
 
