@@ -22,6 +22,6 @@ class AdvancedFeaturesController extends Controller
 
         $book = ShopProduct::getInstance(1, $db_conn);
 
-        dd($book);
+        return view('advanced-features.index', ['greeting' => $greeting, 'book' => $book]);
     }
 }
