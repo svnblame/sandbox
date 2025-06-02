@@ -124,4 +124,14 @@ class ShopProduct implements Chargeable, IdentityObject
         $this->id = $id;
     }
 
+    public function getCategory(): ProductCategory
+    {
+        return $this->productCategory;
+    }
+
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
 }
