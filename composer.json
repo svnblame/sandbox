@@ -15,7 +15,8 @@
         "ext-simplexml": "*",
         "ext-intl": "*",
         "ext-pdo": "*",
-        "ext-xmlwriter": "*"
+        "ext-xmlwriter": "*",
+        "ext-libxml": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

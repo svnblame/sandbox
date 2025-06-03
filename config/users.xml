@@ -2,5 +2,5 @@
 <conf>
     <item name="user">bob</item>
     <item name="host">localhost</item>
-    <item name="pass">boofaazaa</item>
+    <item name="pass" pass="boofaazaa">boofaazaa</item>
 </conf>
