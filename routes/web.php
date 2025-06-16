@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdvancedFeaturesController;
+use App\Http\Controllers\Api\DogController;
 use App\Http\Controllers\HandlingErrorsController;
 use App\Http\Controllers\ObjectBasicsController;
 use Illuminate\Support\Facades\Route;
