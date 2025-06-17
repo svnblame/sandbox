@@ -6,15 +6,18 @@ class NastyBoss
 {
     private array $employees = [];
 
-    public function addEmployee(string $employeeName): void
+    public function addEmployee(Employee $employee): void
     {
         // BAD!!: Forces specific implementation...
-        $this->employees[] = new Minion($employeeName);
+        // $this->employees[] = new Minion($employeeName);
+
+        // Better! Work with ANY given Employee type
+        $this->employees[] = $employee;
     }
 
     public function projectFails(): string
     {
-        if (count($this->employees) > 0) {
+        if (count($this->employees)) {
             $emp = array_pop($this->employees);
             return $emp->fire();
         }
