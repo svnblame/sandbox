@@ -10,5 +10,10 @@
         <p>
             <strong>Name:</strong> {{ $name }}
         </p>
+        <hr class="mb-4">
+        <h3>Mega:</h3>
+        <p>{{ $mega }}</p>
+        <h3>Bloggs:</h3>
+        <p>{{ $bloggs }}</p>
     </div>
 </x-layout>
