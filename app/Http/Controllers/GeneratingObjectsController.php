@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GeneratingObjects\Employee;
 use App\Models\GeneratingObjects\NastyBoss;
-use App\Models\GeneratingObjects\Minion;
-use App\Models\GeneratingObjects\CluedUp;
-
 
 class GeneratingObjectsController extends Controller
 {
@@ -14,9 +12,9 @@ class GeneratingObjectsController extends Controller
         $output = [];
 
         $boss = new NastyBoss();
-        $boss->addEmployee(new Minion('Harry'));
-        $boss->addEmployee(new CluedUp('Bob'));
-        $boss->addEmployee(new Minion('Mary'));
+        $boss->addEmployee(Employee::recruit('Harry'));
+        $boss->addEmployee(Employee::recruit('Bob'));
+        $boss->addEmployee(Employee::recruit('Mary'));
 
         $output[] = $boss->projectFails();
         $output[] = $boss->projectFails();
