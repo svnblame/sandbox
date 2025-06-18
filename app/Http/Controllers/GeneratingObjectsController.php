@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\GeneratingObjects\Employee;
 use App\Models\GeneratingObjects\NastyBoss;
+use App\Models\GeneratingObjects\Preferences;
 
 class GeneratingObjectsController extends Controller
 {
@@ -20,6 +21,14 @@ class GeneratingObjectsController extends Controller
         $output[] = $boss->projectFails();
         $output[] = $boss->projectFails();
 
-        return view('generating_objects.index', compact('output'));
+        $pref = Preferences::getInstance();
+        $pref->setProperty('name', 'Gene');
+
+        unset($pref);   // remove the reference
+
+        $pref2 = Preferences::getInstance();
+        $name = $pref2->getProperty('name');
+
+        return view('generating_objects.index', compact('output', 'name'));
     }
 }

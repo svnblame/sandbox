@@ -6,5 +6,9 @@
                 <li class="mb-2">{{ $item }}</li>
             @endforeach
         </ul>
+        <hr class="mb-4">
+        <p>
+            <strong>Name:</strong> {{ $name }}
+        </p>
     </div>
 </x-layout>
