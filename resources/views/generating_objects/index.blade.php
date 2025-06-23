@@ -11,9 +11,9 @@
             <strong>Name:</strong> {{ $name }}
         </p>
         <hr class="mb-4">
-        <h3>Mega:</h3>
-        <p>{{ $mega }}</p>
         <h3>Bloggs:</h3>
-        <p>{{ $bloggs }}</p>
+        <p>{{ $bloggs->getHeaderText() }}</p>
+        <p>{{ $bloggs->getApptEncoder()->encode() }}</p>
+        <p>{{ $bloggs->getFooterText() }}</p>
     </div>
 </x-layout>

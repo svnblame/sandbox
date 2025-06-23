@@ -2,15 +2,9 @@
 
 namespace App\Models\GeneratingObjects;
 
-class CommsManager
+abstract class CommsManager
 {
-    public function __construct(private EncoderType $mode) {}
-
-    public function getApptEncoder(): ApptEncoder
-    {
-        return match ($this->mode) {
-            EncoderType::bloggs => new BloggsApptEncoder(),
-            EncoderType::mega   => new MegaApptEncoder()
-        };
-    }
+    abstract public function getHeaderText(): string;
+    abstract public function getApptEncoder(): ApptEncoder;
+    abstract public function getFooterText(): string;
 }
