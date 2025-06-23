@@ -9,9 +9,13 @@ class BloggsCommsManager extends CommsManager
         return "BloggsCal header\n";
     }
 
-    public function getApptEncoder(): ApptEncoder
+    public function make(ProdType $type): Encoder
     {
-        return new BloggsApptEncoder();
+        return match ($type) {
+            ProdType::appt => new BloggsApptEncoder(),
+            ProdType::contact => new BloggsContactEncoder(),
+            ProdType::ttd => new BloggsTtdEncoder(),
+        };
     }
 
     public function getFooterText(): string
