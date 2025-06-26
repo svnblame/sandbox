@@ -2,7 +2,7 @@
 
 namespace App\Models\GeneratingObjects;
 
-class BloggsContactEncoder extends ApptEncoder implements Encoder
+class BloggsContactEncoder extends ApptEncoder
 {
     public function encode(): string
     {

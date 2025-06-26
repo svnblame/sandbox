@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GeneratingObjects\AppConfig;
 use App\Models\GeneratingObjects\EarthForest;
 use App\Models\GeneratingObjects\EarthPlains;
 use App\Models\GeneratingObjects\EarthSea;
 use App\Models\GeneratingObjects\Employee;
 use App\Models\GeneratingObjects\NastyBoss;
 use App\Models\GeneratingObjects\Preferences;
+use App\Models\GeneratingObjects\ProdType;
 use App\Models\GeneratingObjects\TerrainFactory;
+use JetBrains\PhpStorm\NoReturn;
 
 class GeneratingObjectsController extends Controller
 {
+    #[NoReturn]
     public function index()
     {
         $output = [];
@@ -43,12 +47,17 @@ class GeneratingObjectsController extends Controller
         $earthPlains = print_r($factory->getPlains(), true);
         $earthForest = print_r($factory->getForest(), true);
 
+        $commsManger = Appconfig::getInstance()->getCommsManager();
+
+        $megaApptEncoding = $commsManger->make(ProdType::appt)->encode();
+
         return view('generating_objects.index', compact(
             'output',
             'name',
             'earthSea',
             'earthPlains',
-            'earthForest'
+            'earthForest',
+            'megaApptEncoding'
         ));
     }
 }

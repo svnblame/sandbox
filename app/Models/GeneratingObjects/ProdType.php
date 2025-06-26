@@ -7,4 +7,5 @@ enum ProdType
     case appt;
     case ttd;
     case contact;
+    case mega;
 }

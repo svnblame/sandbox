@@ -14,5 +14,7 @@
         <p>{{ $earthSea }}</p>
         <p>{{ $earthPlains }}</p>
         <p>{{ $earthForest }}</p>
+        <hr class="mb-4">
+        <p>{{ $megaApptEncoding }}</p>
     </div>
 </x-layout>
