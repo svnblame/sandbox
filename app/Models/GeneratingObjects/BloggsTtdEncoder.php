@@ -2,7 +2,7 @@
 
 namespace App\Models\GeneratingObjects;
 
-class BloggsTtdEncoder extends ApptEncoder implements Encoder
+class BloggsTtdEncoder extends ApptEncoder
 {
     public function encode(): string
     {

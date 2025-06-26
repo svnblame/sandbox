@@ -2,7 +2,7 @@
 
 namespace App\Models\GeneratingObjects;
 
-abstract class ApptEncoder
+abstract class ApptEncoder implements Encoder
 {
     abstract public function encode(): string;
 }
