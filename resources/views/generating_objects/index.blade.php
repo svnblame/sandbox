@@ -7,13 +7,13 @@
             @endforeach
         </ul>
         <hr class="mb-4">
-        <p>
+        <p class="mb-4">
             <strong>Name:</strong> {{ $name }}
         </p>
         <hr class="mb-4">
         <p>{{ $earthSea }}</p>
         <p>{{ $earthPlains }}</p>
-        <p>{{ $earthForest }}</p>
+        <p class="mb-4">{{ $earthForest }}</p>
         <hr class="mb-4">
         <p>{{ $megaApptEncoding }}</p>
     </div>
