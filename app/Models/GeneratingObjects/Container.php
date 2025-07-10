@@ -2,6 +2,8 @@
 
 namespace App\Models\GeneratingObjects;
 
+use ReflectionClass;
+
 class Container
 {
     private array $components = [];
@@ -26,18 +28,21 @@ class Container
             }
 
             $this->components[$name] = function () use ($resolvedName) {
-                $rClass = new \ReflectionClass($resolvedName);
+                $rClass = new ReflectionClass($resolvedName);
                 return $rClass->newInstance();
             };
         }
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     public function get(string $class): object
     {
         if (isset($this->components[$class])) {
             $inst = $this->components[$class]();
         } else {
-            $rClass = new \ReflectionClass($class);
+            $rClass = new ReflectionClass($class);
             $inst = $rClass->newInstance();
         }
 

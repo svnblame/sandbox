@@ -17,6 +17,8 @@
         <hr class="mb-4">
         <p>{{ $megaApptEncoding }}</p>
         <hr class="mb-4">
-        <p>{{ $apptMakerOutput }}</p>
+        <p>{{ $appointmentOutput }}</p>
+        <hr class="mb-4">
+        <p>{{ $appointmentOutput2 }}</p>
     </div>
 </x-layout>
