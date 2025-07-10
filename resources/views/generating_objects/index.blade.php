@@ -16,5 +16,7 @@
         <p class="mb-4">{{ $earthForest }}</p>
         <hr class="mb-4">
         <p>{{ $megaApptEncoding }}</p>
+        <hr class="mb-4">
+        <p>{{ $apptMakerOutput }}</p>
     </div>
 </x-layout>

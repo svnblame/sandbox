@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\GeneratingObjects\AppConfig;
+use App\Models\GeneratingObjects\AppointmentMaker2;
+use App\Models\GeneratingObjects\Container;
 use App\Models\GeneratingObjects\EarthForest;
 use App\Models\GeneratingObjects\EarthPlains;
 use App\Models\GeneratingObjects\EarthSea;
@@ -51,13 +53,20 @@ class GeneratingObjectsController extends Controller
 
         $megaApptEncoding = $commsManger->make(ProdType::appt)->encode();
 
+        // Dependency Injection example
+        $assembler = new Container(config_path('objects.xml'));
+        $encoder = $assembler->get(AppEncoder::class);
+        $apptMaker = new AppointmentMaker2($encoder);
+        $appMakerOutput = $apptMaker->makeAppointment();
+
         return view('generating_objects.index', compact(
             'output',
             'name',
             'earthSea',
             'earthPlains',
             'earthForest',
-            'megaApptEncoding'
+            'megaApptEncoding',
+            'appMakerOutput'
         ));
     }
 }

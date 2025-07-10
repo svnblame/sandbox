@@ -1,0 +1,5 @@
+<objects>
+    <class name="app\Models\GeneratingObjects\ApptEncoder">
+        <instance inst="app\Models\GeneratingObjects\BloggsApptEncoder" />
+    </class>
+</objects>
