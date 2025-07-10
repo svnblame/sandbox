@@ -60,16 +60,20 @@ class GeneratingObjectsController extends Controller
         $megaApptEncoding = $commsManger->make(ProdType::appt)->encode();
 
         // Dependency Injection example
-        $assembler = new Container(config_path('objects.xml'));
-        $encoder = $assembler->get(ApptEncoder::class);
-        $apptMaker = new AppointmentMaker2($encoder);
-        $appointmentOutput = $apptMaker->makeAppointment();
+//        $assembler = new Container(config_path('objects.xml'));
+//        $encoder = $assembler->get(ApptEncoder::class);
+//        $apptMaker = new AppointmentMaker2($encoder);
+//        $appointmentOutput = $apptMaker->makeAppointment();
 
         // Concrete object created even if not in the config file
-        $assembler2 = new Container(config_path('objects.xml'));
-        $encoder2 = $assembler2->get(MegaApptEncoder::class);
-        $apptMaker2 = new AppointmentMaker2($encoder2);
-        $appointmentOutput2 = $apptMaker2->makeAppointment();
+//        $assembler2 = new Container(config_path('objects.xml'));
+//        $encoder2 = $assembler2->get(MegaApptEncoder::class);
+//        $apptMaker2 = new AppointmentMaker2($encoder2);
+//        $appointmentOutput2 = $apptMaker2->makeAppointment();
+
+        $assembler = new Container(config_path('objects.xml'));
+        $apptMaker = $assembler->get(AppointmentMaker2::class);
+        $appointmentOutput = $apptMaker->makeAppointment();
 
         return view('generating_objects.index', compact(
             'output',
@@ -79,7 +83,7 @@ class GeneratingObjectsController extends Controller
             'earthForest',
             'megaApptEncoding',
             'appointmentOutput',
-            'appointmentOutput2',
+//            'appointmentOutput2',
         ));
     }
 }

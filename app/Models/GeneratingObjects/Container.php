@@ -18,8 +18,14 @@ class Container
         $data = simplexml_load_file($conf);
 
         foreach ($data->class as $class) {
+            $args = [];
             $name = (string) $class['name'];
             $resolvedName = $name;
+
+            foreach ($class->arg as $arg) {
+                $argClass = (string) $arg['inst'];
+                $args[(int)$arg['num']] = $argClass;
+            }
 
             if (isset($class->instance)) {
                 if (isset($class->instance[0]['inst'])) {
@@ -27,9 +33,17 @@ class Container
                 }
             }
 
-            $this->components[$name] = function () use ($resolvedName) {
+            ksort($args);
+
+            $this->components[$name] = function () use ($resolvedName, $args) {
+                $expandedArgs = [];
+
+                foreach ($args as $arg) {
+                    $expandedArgs[] = $this->get($arg);
+                }
+
                 $rClass = new ReflectionClass($resolvedName);
-                return $rClass->newInstance();
+                return $rClass->newInstanceArgs($expandedArgs);;
             };
         }
     }
