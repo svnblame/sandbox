@@ -75,7 +75,7 @@ class GeneratingObjectsController extends Controller
         $apptMaker = $assembler->get(AppointmentMaker2::class);
         $appointmentOutput = $apptMaker->makeAppointment();
 
-        return view('generating_objects.index', compact(
+        return view('generating-objects.index', compact(
             'output',
             'name',
             'earthSea',
