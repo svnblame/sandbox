@@ -2,7 +2,7 @@
 
 namespace App\Models\GeneratingObjects;
 
-class AppointmentMaker2
+readonly class AppointmentMaker2
 {
     public function __construct(private ApptEncoder $encoder) {}
 
