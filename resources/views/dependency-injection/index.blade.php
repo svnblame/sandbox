@@ -9,8 +9,11 @@
     </div>
     <div class="mb-4 text-[0.75em]/loose">
         <p class="mb-4">
-            <strong>Output:</strong> {{ $output }}
+            <strong>Output:</strong> {{ $output1 }}
         </p>
         <hr class="mb-4">
+        <p class="mb-4">
+            <strong>Checker:</strong> {{ $checker }}
+        </p>
     </div>
 </x-layout>
