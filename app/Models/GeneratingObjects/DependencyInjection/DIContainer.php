@@ -58,6 +58,7 @@ class DIContainer
     public function customGen(string $name, callable $func): void
     {
         $container = $this;
+
         $this->components[$name] = function () use ($container, $func): object {
             return $func($container);
         };
@@ -100,7 +101,7 @@ class DIContainer
        $this->injectMethods($inst, $rClass->getMethods());
        $this->add(get_class($inst), $inst);
 
-        return $inst;
+       return $inst;
     }
 
     private function injectMethods(object $inst, array $methods): void

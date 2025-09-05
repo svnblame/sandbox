@@ -14,4 +14,10 @@ class CheckThing
         return ($this->dateTag->format(\DateTime::ATOM) .
             " class: {$this->cssClass}");
     }
+
+    public function output(): string
+    {
+        return ($this->dateTag->format(\DateTime::ATOM) .
+            " class: {$this->cssClass}");
+    }
 }

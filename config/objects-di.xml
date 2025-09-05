@@ -1,5 +1,13 @@
 <objects>
-    <class name="App\Models\GeneratingObjects\ApptEncoder">
-        <instance inst="App\Models\GeneratingObjects\BloggsApptEncoder" />
+    <class name="App\Models\GeneratingObjects\TerrainFactory">
+        <arg num="0" inst="App\Models\GeneratingObjects\EarthSea" />
+        <arg num="0" inst="App\Models\GeneratingObjects\MarsPlains" />
+        <arg num="0" inst="App\Models\GeneratingObjects\Forest" />
+    </class>
+    <class name="App\Models\GeneratingObjects\Forest">
+        <instance inst="App\Models\GeneratingObjects\EarthForest" />
+    </class>
+    <class name="App\Models\GeneratingObjects\AppointmentMaker2">
+        <arg num="0" inst="App\Models\GeneratingObjects\BloggsApptEncoder" />
     </class>
 </objects>

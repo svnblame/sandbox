@@ -11,9 +11,9 @@
         <p class="mb-4">
             <strong>Output:</strong> {{ $output1 }}
         </p>
-        <hr class="mb-4">
-        <p class="mb-4">
-            <strong>Checker:</strong> {{ $checker }}
-        </p>
+{{--        <hr class="mb-4">--}}
+{{--        <p class="mb-4">--}}
+{{--            <strong>Checker:</strong> {{ $checker->toString() }}--}}
+{{--        </p>--}}
     </div>
 </x-layout>

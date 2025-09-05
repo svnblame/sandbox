@@ -12,7 +12,7 @@ class DependencyInjectionController extends Controller
         $pageTitle = 'Dependency Injection';
 
         // Using Autowiring
-        $container = new DIContainer(config_path('objects.xml'));
+        $container = new DIContainer(config_path('objects-di.xml'));
 
         $pinger = $container->get(Pinger::class);
 
@@ -21,13 +21,12 @@ class DependencyInjectionController extends Controller
         $container->customGen(CheckThing::class, function (DIContainer $container): object {
             $now = new \DateTime('now', new \DateTimeZone('UTC'));
             $css = 'myCssClass';
+
             return new CheckThing($now, $css);
         });
 
-        $checker = $container->get(CheckThing::class);
-
         return view(
             'dependency-injection.index',
-            compact('pageTitle', 'output1', 'checker'));
+            compact('pageTitle', 'output1'));
     }
 }
