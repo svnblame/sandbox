@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\GeneratingObjects\AppConfig;
+use App\Models\GeneratingObjects\AppointmentMaker2;
+use App\Models\GeneratingObjects\ApptEncoder;
+use App\Models\GeneratingObjects\BloggsApptEncoder;
+use App\Models\GeneratingObjects\Container;
 use App\Models\GeneratingObjects\EarthForest;
 use App\Models\GeneratingObjects\EarthPlains;
 use App\Models\GeneratingObjects\EarthSea;
 use App\Models\GeneratingObjects\Employee;
+use App\Models\GeneratingObjects\MegaApptEncoder;
 use App\Models\GeneratingObjects\NastyBoss;
 use App\Models\GeneratingObjects\Preferences;
 use App\Models\GeneratingObjects\ProdType;
@@ -15,6 +20,9 @@ use JetBrains\PhpStorm\NoReturn;
 
 class GeneratingObjectsController extends Controller
 {
+    /**
+     * @throws \ReflectionException
+     */
     #[NoReturn]
     public function index()
     {
@@ -51,13 +59,31 @@ class GeneratingObjectsController extends Controller
 
         $megaApptEncoding = $commsManger->make(ProdType::appt)->encode();
 
-        return view('generating_objects.index', compact(
+        // Dependency Injection example
+//        $assembler = new Container(config_path('objects.xml'));
+//        $encoder = $assembler->get(ApptEncoder::class);
+//        $apptMaker = new AppointmentMaker2($encoder);
+//        $appointmentOutput = $apptMaker->makeAppointment();
+
+        // Concrete object created even if not in the config file
+//        $assembler2 = new Container(config_path('objects.xml'));
+//        $encoder2 = $assembler2->get(MegaApptEncoder::class);
+//        $apptMaker2 = new AppointmentMaker2($encoder2);
+//        $appointmentOutput2 = $apptMaker2->makeAppointment();
+
+        $assembler = new Container(config_path('objects.xml'));
+        $apptMaker = $assembler->get(AppointmentMaker2::class);
+        $appointmentOutput = $apptMaker->makeAppointment();
+
+        return view('generating-objects.index', compact(
             'output',
             'name',
             'earthSea',
             'earthPlains',
             'earthForest',
-            'megaApptEncoding'
+            'megaApptEncoding',
+            'appointmentOutput',
+//            'appointmentOutput2',
         ));
     }
 }
