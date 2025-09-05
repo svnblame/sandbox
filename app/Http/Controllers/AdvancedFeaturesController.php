@@ -20,6 +20,7 @@ class AdvancedFeaturesController extends Controller
      */
     public function index()
     {
+        $pageTitle = 'Advanced Features ******';
         $greeting = StaticExample::sayHello();
 
         // Create and return a new PDO database connection
@@ -78,6 +79,7 @@ class AdvancedFeaturesController extends Controller
         $spreadSheet = print_r(SpreadSheet::create(), true);
 
         return view('advanced-features.index', [
+            'pageTitle' => $pageTitle,
             'greeting' => $greeting,
             'book' => $book->summaryLine(),
             'record' => $record->summaryLine(),

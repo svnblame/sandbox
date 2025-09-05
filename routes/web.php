@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdvancedFeaturesController;
+use App\Http\Controllers\DependencyInjectionController;
 use App\Http\Controllers\HandlingErrorsController;
 use App\Http\Controllers\ObjectBasicsController;
 use App\Http\Controllers\GeneratingObjectsController;
@@ -14,3 +15,4 @@ Route::get('/object-basics', [ObjectBasicsController::class, 'index']);
 Route::get('/advanced-features', [AdvancedFeaturesController::class, 'index']);
 Route::get('/handling-errors', [HandlingErrorsController::class, 'index']);
 Route::get('/generating-objects', [GeneratingObjectsController::class, 'index']);
+Route::get('/dependency-injection', [DependencyInjectionController::class, 'index']);

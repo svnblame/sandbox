@@ -15,6 +15,10 @@
         <p>{{ $earthPlains }}</p>
         <p class="mb-4">{{ $earthForest }}</p>
         <hr class="mb-4">
-        <p>{{ $megaApptEncoding }}</p>
+        <p class="mb-4">{{ $megaApptEncoding }}</p>
+        <hr class="mb-4">
+        <p>{{ $appointmentOutput }}</p>
+{{--        <hr class="mb-4">--}}
+{{--        <p>{{ $appointmentOutput2 }}</p>--}}
     </div>
 </x-layout>
