@@ -21,39 +21,39 @@
 </head>
 <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
 <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
-    <nav class="flex items-center justify-end gap-4">
+    <nav class="flex items-center justify-center gap-2">
             <a
-                href="{{ url('/') }}"
+                href="{{ route('home') }}"
                 class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
             >
                 Home
             </a>
             <a
-                href="{{ url('/object-basics') }}"
+                href="{{ route('object-basics') }}"
                 class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
             >
                 Object Basics
             </a>
             <a
-                href="{{ url('/advanced-features') }}"
+                href="{{ route('advanced-features') }}"
                 class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
             >
                 Advanced Features
             </a>
         <a
-            href="{{ url('/handling-errors') }}"
+            href="{{ route('handling-errors') }}"
             class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
         >
             Handling Errors
         </a>
         <a
-            href="{{ url('/generating-objects') }}"
+            href="{{ route('generating-objects') }}"
             class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
         >
             Generating Objects
         </a>
         <a
-            href="{{ url('/dependency-injection') }}"
+            href="{{ route('di') }}"
             class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
         >
             Dependency Injection
