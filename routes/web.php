@@ -40,4 +40,9 @@ Route::get('greeting', function () {
     return Greeting::first()->body;
 });
 Route::get('members/{id}', [MemberController::class, 'show'])->name('members.show');
+
+// LUR: Tasks
+Route::resource('tasks', TaskController::class);
+/*Route::get('tasks/create', [TaskController::class, 'create'])->name('tasks.create');
 Route::get('tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::post('tasks', [TaskController::class, 'store'])->name('tasks.store');*/

@@ -3,7 +3,9 @@
     <div class="mb-4 text-[0.5em]/loose">
         <ul>
         @foreach($tasks as $task)
-            <li>{{ $task->name }} - {{ $task->description }}</li>
+            <li>
+                <a href="{{ route('tasks.show', $task->id) }}" class="text-blue-500 hover:text-blue-700">{{ $task->name }}</a> - {{ $task->description }}
+            </li>
         @endforeach
         </ul>
     </div>
