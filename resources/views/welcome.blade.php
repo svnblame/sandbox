@@ -7,6 +7,9 @@
         <a href="<?php echo route('members.show', ['id' => 14]); ?>">Members</a>
     </div>
     <div class="mb-4 text-[0.5em]/loose">
-        <a href="<?php echo route('tasks.index'); ?>">Tasks</a>
+        <a href="<?php echo route('tasks.create'); ?>">Tasks: Create</a>
+    </div>
+    <div class="mb-4 text-[0.5em]/loose">
+        <a href="<?php echo route('tasks.index'); ?>">Tasks: List</a>
     </div>
 </x-layout>

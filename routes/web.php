@@ -15,13 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/object-basics', [ObjectBasicsController::class, 'index']);
-Route::get('/advanced-features', [AdvancedFeaturesController::class, 'index']);
-Route::get('/handling-errors', [HandlingErrorsController::class, 'index']);
-Route::get('/generating-objects', [GeneratingObjectsController::class, 'index']);
-Route::get('/dependency-injection', [DependencyInjectionController::class, 'index']);
+})->name('home');
+Route::get('/object-basics', [ObjectBasicsController::class, 'index'])
+    ->name('object-basics');
+Route::get('/advanced-features', [AdvancedFeaturesController::class, 'index'])
+    ->name('advanced-features');
+Route::get('/handling-errors', [HandlingErrorsController::class, 'index'])
+    ->name('handling-errors');
+Route::get('/generating-objects', [GeneratingObjectsController::class, 'index'])
+    ->name('generating-objects');
+Route::get('/dependency-injection', [DependencyInjectionController::class, 'index'])
+    ->name('di');
 
 // LUR
 
@@ -36,4 +40,9 @@ Route::get('greeting', function () {
     return Greeting::first()->body;
 });
 Route::get('members/{id}', [MemberController::class, 'show'])->name('members.show');
+
+// LUR: Tasks
+Route::resource('tasks', TaskController::class);
+/*Route::get('tasks/create', [TaskController::class, 'create'])->name('tasks.create');
 Route::get('tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::post('tasks', [TaskController::class, 'store'])->name('tasks.store');*/
